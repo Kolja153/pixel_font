@@ -46,6 +46,8 @@ function createMass() {
 function cleartable() {
 
 	$('.click').removeClass("click");
+	mass = createMass();
+	createLine(mass);
 }
 
 
