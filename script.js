@@ -37,7 +37,6 @@ function createMass() {
 		row[i] = column ;
 	}
 
-	console.log(row);
 	return row;
 
 }
