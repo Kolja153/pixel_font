@@ -22,8 +22,6 @@ function createLine(mass) {
 		$( "#line"+i).text( "line"+i+' = '+line);
 	}
 
-	
-
 }
 
 function createMass() {
