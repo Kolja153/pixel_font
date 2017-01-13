@@ -5,6 +5,9 @@ $( "td" ).click(function() {
 	var color = this;
 	
 	colColor(color);
+
+	
+
 	if (mass[this.id[6]][this.id[7]] == 0){
 		mass[this.id[6]][this.id[7]] = 1;
 	}
@@ -19,7 +22,10 @@ $( "td" ).click(function() {
 function createLine(mass) {
 	for(var i = 0; i < 7; i++) {
 		var line = mass[i];
-		$( "#line"+i).text( "line"+i+' = '+line);
+		line=line.join();
+		console.log( );
+		
+		$( "#line"+i).text( "line"+i+'     bin = '+line+'      hex = ' +ConvertBase.bin2hex(line.replace(/,/g, '')));
 	}
 
 }
