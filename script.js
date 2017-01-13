@@ -20,14 +20,20 @@ $( "td" ).click(function() {
 })
 
 function createLine(mass) {
+	$( "#array").text('');
+	var string='';
 	for(var i = 0; i < 7; i++) {
 		var line = mass[i];
 		line=line.join();
 		console.log( );
 		
-		$( "#line"+i).text( "line"+i+'     bin = '+line+'      hex = ' +ConvertBase.bin2hex(line.replace(/,/g, '')));
-	}
+		$( "#line"+i).text( "line"+i+'     bin = '+line+'      hex = 0x' +ConvertBase.bin2hex(line.replace(/,/g, '')));
+			string=string+'0x'+ConvertBase.bin2hex(line.replace(/,/g,''));
+			if (i<6){string=string+','};
+			$( "#array").text(string);
 
+		//$( "#array").append( '0x'+ConvertBase.bin2hex(line.replace(/,/g, ''))+',');		
+	}
 }
 
 function createMass() {
@@ -72,8 +78,7 @@ function createTable (){
 	$( "#content").append( '<table id="symbol" height="160" width="180" border="1"></table>	');
 	for(var i = 0; i < 7; i++) {
 		$( "#content").append( '<br><label id ="line'+i+'">line'+i+' = 0,0,0,0,0,0,0,0 </label>');
-	}
-	
+		}
 	for(var i = 0; i < 7; i++) {
   		 $( "#symbol" ).append( '<tr id ="row'+i+'""></tr>' );
 
@@ -83,6 +88,6 @@ function createTable (){
 	   }  
 	}
 
-
+$( "#content").append( '<p>array = {<span id ="array">0x0,0x0,0x0,0x0,0x0,0x0,0x0</span>}</p>');
 $( "#content").append( '<p></p><button onclick="cleartable()">очистити</button>' );
 }
