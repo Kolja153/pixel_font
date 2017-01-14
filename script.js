@@ -4,8 +4,18 @@ var column ;
 
 newTable();
 
-$( "td" ).click(function() {
-	console.log('this');
+
+
+function newTable(){
+	$("#content").text('');
+	row = $("#row").val();
+	column = $("#column").val();	
+	mass = createMass(row,column);
+
+	createTable (row,column);
+
+	$( "td" ).click(function() {
+	
 	colColor(this);	
 
 	if (mass[this.id[6]][this.id[7]] == 0){
@@ -19,14 +29,6 @@ $( "td" ).click(function() {
 	createLine(mass,row);	
 })
 
-function newTable(){
-	$("#content").text('');
-
-	row = $("#row").val();
-	column = $("#column").val();	
-	mass = createMass(row,column);
-
-	createTable (row,column);
 }
 
 function createLine(mass,rmax) {
