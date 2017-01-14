@@ -4,10 +4,9 @@ var column ;
 
 newTable();
 
-
-
 function newTable(){
 	$("#content").text('');
+
 	row = $("#row").val();
 	column = $("#column").val();	
 	mass = createMass(row,column);
@@ -16,19 +15,18 @@ function newTable(){
 
 	$( "td" ).click(function() {
 	
-	colColor(this);	
+		colColor(this);	
 
-	if (mass[this.id[6]][this.id[7]] == 0){
-		mass[this.id[6]][this.id[7]] = 1;
-	}
-	else
-	{
-		mass[this.id[6]][this.id[7]] = 0;
-	}
-	
-	createLine(mass,row);	
-})
-
+		if (mass[this.id[6]][this.id[7]] == 0){
+			mass[this.id[6]][this.id[7]] = 1;
+		}
+		else
+		{
+			mass[this.id[6]][this.id[7]] = 0;
+		}
+		
+		createLine(mass,row);	
+	})
 }
 
 function createLine(mass,rmax) {
@@ -60,9 +58,7 @@ function createMass(rmax,cmax) {
 	}
 
 	return row;
-
 }
-
 
 function cleartable() {
 
@@ -101,5 +97,5 @@ function createTable (rmax,cmax){
 	}
 
 $( "#content").append( '<p>array = {<span id ="array"></span>}</p>');
-$( "#content").append( '<p></p><button onclick="cleartable()">очистити</button>' );
+$( "#content").append( '<p></p><button onclick="newTable()">очистити</button>' );
 }
